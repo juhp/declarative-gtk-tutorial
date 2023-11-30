@@ -24,7 +24,7 @@
 
 "vdom" reactive type layers over gtk
 
-cf FRP: _Functional Reactive Programming_
+Slides: <https://github.com/juhp/declarative-gtk-tutorial/>
 
 # Elm
 
@@ -196,9 +196,9 @@ Typically a product or algebraic data type (ADT)
 
 Some more examples soon
 
-# Basic Declarative UI runtime
+# Elm sandbox Declarative UI runtime
 
-`init ==> view =msg=> update ==> view =msg=> update ==> view ==> ...`
+`init ==> view =msg=> update ==> view =msg=> update ==> view =msg=> ...`
 
 # Elm example 2: text field
 
@@ -251,6 +251,11 @@ element :
 <https://guide.elm-lang.org/effects/random>
 
 <https://elm-lang.org/examples/numbers>
+
+# Elm element Declarative UI runtime
+
+`init =Cmd=> view =msg=> update =Cmd=> view =msg=> update =Cmd=> view =msg=> ...`
+
 
 # So can do The Elm Architecture in GTK?
 
@@ -358,8 +363,8 @@ to maintain, debug, and scale.
 - Play with <https://can-lehmann.github.io/owlkettle/README.html>
   and <https://relm4.org/book/stable/>
 
-Many other reactive/declarative options also exist,
-but in this tutorial talk I focused on the purest kinds.
+Many other interesting reactive/declarative projects in development,
+but in this tutorial talk I tried to focus on the purest kinds.
 
 Checkout also:
 
@@ -369,4 +374,4 @@ Checkout also:
 - Functional Reactive Programming (FRP)
 
 Like Haskell, even if you don't continue Declarative UI programming,
-learning will still make you a better application programmer.
+learning it will still make you a better application programmer.
