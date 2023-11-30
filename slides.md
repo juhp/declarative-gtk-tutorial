@@ -84,7 +84,7 @@ type Pair a b
 type Program flags model msg
 ```
 
-these lowercase identifiers are type variables standing for arbitrary types.
+these lowercase identifiers are type variables standing for arbitrary or generic types.
 
 - records
 
@@ -107,7 +107,7 @@ type Color = Red | Yellow | Blue
 - Algebraic Data Types (ADT)
 
 ```elm
-data Source = File FilePath | URL URI | Error String | Retry
+type Source = File FilePath | URL URI | Error String | Retry
 ```
 
 ## Functions
@@ -174,7 +174,7 @@ sandbox :
     -> Program () model msg
 ```
 
-<https://package.elm-lang.org/packages/elm/browser/latest/Browser>
+<https://package.elm-lang.org/packages/elm/browser/latest/Browser#sandbox>
 
 ## Exercise 1
 
@@ -230,11 +230,8 @@ Check that password is at least 8 characters.
 
 - <https://guide.elm-lang.org/error_handling/result>
 
-# Elm Browser module
+# Elm Browser module `element`
 
-<https://package.elm-lang.org/packages/elm/browser/latest/Browser>
-
-## Element
 ```elm
 element :
     { init : flags -> ( model, Cmd msg )
@@ -245,7 +242,9 @@ element :
     -> Program flags model msg
 ```
 
-## also `document` and `application`
+<https://package.elm-lang.org/packages/elm/browser/latest/Browser#element>
+
+<https://package.elm-lang.org/packages/elm/core/latest/Platform-Cmd#Cmd>
 
 # Elm example 4: random dice
 
@@ -299,16 +298,75 @@ main = do
    - by Oskar Wickström
  - built on top of gtk3 and Haskell gi-gtk bindings
 
-# gi-gtk-declarative hello
+<https://owickstrom.github.io/gi-gtk-declarative/>
 
-<https://github.com/owickstrom/gi-gtk-declarative/blob/master/examples/Hello.hs>
+# gi-gtk-declarative examples
 
-# Relm4
+<https://github.com/owickstrom/gi-gtk-declarative/blob/master/examples/>
+
+- Functor
+- Exit
+- AddBoxes
+
+# gi-gtk-declarative-app-simple
+
+<https://owickstrom.github.io/gi-gtk-declarative/app-simple/>
+
+```haskell
+data App window state event =
+  App
+    { update       :: state -> event -> Transition state event
+    , view         :: state -> AppView window event
+    , inputs       :: [Producer event IO ()]
+    , initialState :: state
+    }
+```
+
+<https://github.com/owickstrom/gi-gtk-declarative/blob/master/gi-gtk-declarative-app-simple/src/GI/Gtk/Declarative/App/Simple.hs>
+
+# Example gi-gtk-declarative apps
+
+- [compare-fonts](https://github.com/juhp/compare-fonts)
+  - port of python fonts-compare tool
+- <https://github.com/owickstrom/komposition> (video editor)
+
+# Rust Relm4
 
 - Rust
 - originally based on Relm (gtk3)
 - Relm4 is based on gtk4 and gtk-rs bindings
 
+<https://github.com/Relm4/Relm4/tree/main/examples>
+
+# Nim Owl Kettle
+
+Nim declarative GTK library
+
+<https://github.com/can-lehmann/owlkettle>
+
+<https://can-lehmann.github.io/owlkettle/README.html>
+
+<https://github.com/can-lehmann/owlkettle/tree/main/examples>
+
 # Summary
 
+Hope I have convinced you that Declarative UIs are simpler and easier
+to maintain, debug, and scale.
+
 - Go through <https://guide.elm-lang.org>
+- Try <https://owickstrom.github.io/gi-gtk-declarative/>
+- Play with <https://can-lehmann.github.io/owlkettle/README.html>
+  and <https://relm4.org/book/stable/>
+
+Many other reactive/declarative options also exist,
+but in this tutorial talk I focused on the purest kinds.
+
+Checkout also:
+
+- <https://github.com/reflex-frp>
+- <https://github.com/fjvallarino/monomer>
+- <https://github.com/utkarshkukreti/purescript-hedwig>
+- Functional Reactive Programming (FRP)
+
+Like Haskell, even if you don't continue Declarative UI programming,
+learning will still make you a better application programmer.
